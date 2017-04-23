@@ -24,7 +24,7 @@ connection.query('SELECT * FROM products ', function (error, results, fields
 });
 
 //will ask the first question 
-function startInquirer(){
+function startInquirer() {
 inquirer.prompt([
 {
     type: "input",
@@ -34,125 +34,150 @@ inquirer.prompt([
 ,{
     type: "input",
     message: "How many do you want to buy?",
-    name: "quantity"
+    name: "purchasing_qty"
 
 }
 //will take in what the user typed for the id and look for it in the 10 case's/items listed below.  then it will ask the second question which will return to the user the item that they chose and its detail.  Function for Answers
 ]).then (function(answers){
   switch (answers.item_id){
     case "1" :
+     //local var to this function but it has a bigger scope
+     //var reduceQty;
+
       connection.query('SELECT * FROM products WHERE item_id = 1', function (error, results, fields) {
-        console.log(results);
-});
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+      //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
+
+    });
+
+
    break;
   
     case "2" :
-     connection.query('SELECT * FROM products WHERE item_id = 2', function (error, results, fields) {
-       console.log(results);
+     //local var to this function but it has a bigger scope
+     //var reduceQty;
+
+      connection.query('SELECT * FROM products WHERE item_id = 2', function (error, results, fields) {
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "3" :
     connection.query('SELECT * FROM products WHERE item_id = 3', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "4" :
     connection.query('SELECT * FROM products WHERE item_id = 4', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "5" :
-    connection.query('SELECT * FROM products WHERE item_id = 5', function (error, results, fields) {
-       console.log(results);
-});
+  connection.query('SELECT * FROM products WHERE item_id = 5', function (error, results, fields) {
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
+});    
+
    break;
 
     case "6" :
     connection.query('SELECT * FROM products WHERE item_id = 6', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "7" :
     connection.query('SELECT * FROM products WHERE item_id = 7', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "8" :
     connection.query('SELECT * FROM products WHERE item_id = 8', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "9" :
     connection.query('SELECT * FROM products WHERE item_id = 9', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
    break;
 
     case "10" :
     connection.query('SELECT * FROM products WHERE item_id = 10', function (error, results, fields) {
-       console.log(results);
+      var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
+        console.log(results[0].stock_qty);
+        console.log(reduceQty);
+
+       //part in " is query phase"  outside of quotes is variables
+    connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
+      console.log(res);
+    });
 });
-   break;
- }   
-
-})//.then (function(answers)
-
-}//end of function
-
-//*****hi guys can someone please tell me what i am doing wrong here **********//
-
-
-function reduceQuantity (){
-  inquirer.prompt({
-      type: "input",
-      name: "stock_qty"
-
-          //this is not working for me
-      // validate: function(value){
-      //   if(isNan(value)==false){
-      //     return true;
-      //   } else {
-      //     return false;
-      //   }
-      // }
-      
-  }).then(function(answer){
-    switch (answers.stock_qty){
-    case "1" :
-    if(name-answer.stock_qty > 0){
-      connection.query("UPDATE products SET stockquantity='"+(stockquantity-answer.stock_qty)+"' WHERE productname='"+product+"'", function (err,res2){
-         console.log("You have purchased from BAMAZON!");
-         reduceQuantity();
-
-         
-});
-      break;
-  
     
-
-                    // if((res[id].stockquantity-answer.quantity)>0){
-                    //   connection.query("UPDATE products SET stockquantity='"+(res[id].stockquantity-answer.stock_qty)+"'WHERE productname='"+product+"'", function(err,res2){
-                    //     console.log("Product has been purchased!");
-                    //     reduceQuantity();
-                    //   })
-
-                    // } else {
-                    //   console.log("Not a valid selection!");
-                    //   reduceQuantity();
-                    // }
-  } ///if statement for reduce stock quantity
-} //closing switch
-})//closing .then;
-}
-
-
-
-
-
-
+   //break;
+};
