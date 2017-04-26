@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "4JayS1977",
+  password: " ", //enter password
   database: "bamazon_db"
 });
 
@@ -52,13 +52,15 @@ inquirer.prompt([
       //part in " is query phase"  outside of quotes is variables
     connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
       console.log(res);
+    
     });
 
     });
+      break;
+    
 
 
-   break;
-  
+
     case "2" :
      //local var to this function but it has a bigger scope
      //var reduceQty;
@@ -86,7 +88,7 @@ inquirer.prompt([
       console.log(res);
     });
 });
-   break;
+   break; //jumps out of this case 
 
     case "4" :
     connection.query('SELECT * FROM products WHERE item_id = 4', function (error, results, fields) {
@@ -170,8 +172,10 @@ inquirer.prompt([
     case "10" :
     connection.query('SELECT * FROM products WHERE item_id = 10', function (error, results, fields) {
       var reduceQty = parseInt(results[0].stock_qty)-parseInt(answers.purchasing_qty);
-        console.log(results[0].stock_qty);
-        console.log(reduceQty);
+        console.log(" Current Stock" + results[0].stock_qty);
+        console.log(reduceQty + " Available Stock after purchase");
+        var totalCost = parseInt(answers.purchasing_qty) * parseInt(results[0].price);
+        console.log(totalCost + " Amount you owe");
 
        //part in " is query phase"  outside of quotes is variables
     connection.query("UPDATE products SET stock_qty="+reduceQty +" WHERE item_id="+ answers.item_id,function (err, res){
@@ -179,5 +183,7 @@ inquirer.prompt([
     });
 });
     
-   //break;
-};
+} //switch statement closing
+});  //.then closing function
+
+} //start inquirer closing bracket
